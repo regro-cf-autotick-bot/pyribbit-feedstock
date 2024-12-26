@@ -11,7 +11,7 @@ source:
   sha256: babcd34368bf83d8ae064209d1b72593275b5c9cb5aa69150c054c812af687c5
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -25,7 +25,7 @@ requirements:
     - pip
     - pyglet >=1.4.10
     - pyopengl >=3.1.0
-    - python  >=3.6
+    - python {{ python_min }}
     - scipy
     - six
     - trimesh
@@ -38,7 +38,7 @@ requirements:
     - pillow
     - pyglet >=1.4.10
     - pyopengl >=3.1.0
-    - python  >=3.6
+    - python >={{ python_min }}
     - scipy
     - six
     - trimesh
@@ -54,6 +54,7 @@ test:
   requires:
     - pip
     - pytest
+    - python {{ python_min }}
   source_files:
     - tests
     - examples
